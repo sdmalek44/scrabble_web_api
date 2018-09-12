@@ -11,10 +11,14 @@ class WordPresenter
       faraday.adapter Faraday.default_adapter
     end
     response = conn.get("/api/v1/inflections/en/#{@word}")
-    JSON.parse(response.body, symbolize_names: true)[:results][0][:lexicalEntries][0][:inflectionOf][0][:text]
+    display_message(response)
   end
 
-  def display_message
-    response.env.status
+  def display_message(response)
+    if response.env.status == 404
+      "'#{@word}' is not a valid word."
+    elsif response.env.status == 200
+      "‘#{@word}’ is a valid word and its root form is ‘#{JSON.parse(response.body, symbolize_names: true)[:results][0][:lexicalEntries][0][:inflectionOf][0][:text]}’."
+    end
   end
 end

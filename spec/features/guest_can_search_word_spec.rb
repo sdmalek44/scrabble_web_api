@@ -7,7 +7,7 @@ describe 'user visits root' do
     fill_in :word, with: 'foxes'
     click_on 'Validate Word'
 
-    expect(page).to have_content("'foxes' is a valid word and it's root form is 'fox'")
+    expect(page).to have_content("'foxes' is a valid word and its root form is 'fox'.")
   end
   it 'invalid word is given a message' do
     visit '/'
@@ -15,6 +15,6 @@ describe 'user visits root' do
     fill_in :word, with: 'foxez'
     click_on 'Validate Word'
 
-    expect(page).to have_content("'foxes' is not a valid word")
+    expect(page).to have_content("'foxez' is not a valid word.")
   end
 end
