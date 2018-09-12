@@ -4,7 +4,7 @@ class WordPresenter
     @service = OxfordService.new(word)
   end
 
-  def display_message
+  def display_word_root
     if @service.word_root
       "'#{@service.word}' is a valid word and its root form is '#{@service.word_root}'."
     else
