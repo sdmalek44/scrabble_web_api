@@ -5,6 +5,9 @@ describe OxfordService, type: :model do
     @service = OxfordService.new('foxes')
     @bad_service = OxfordService.new('foxez')
   end
+  it 'has attributes' do
+    expect(@service.word).to eq('foxes')
+  end
   it 'can get back word root' do
     VCR.use_cassette('root') do
       expect(@service.word_root).to eq('fox')
