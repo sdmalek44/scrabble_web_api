@@ -2,7 +2,7 @@ class Api::V1::PlaysController < ApiController
 
   def create
     play = Play.create(play_params)
-    render json: {status: 'Response Created'}, status: 201
+    render json: play, status: 201
   end
 
   private
