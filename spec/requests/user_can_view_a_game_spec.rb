@@ -28,8 +28,8 @@ describe 'GET /api/v1/games' do
   context 'POST /api/v1/games/1/plays' do
     it 'can create a post with a play and update game' do
       post '/api/v1/games/1/plays?user_id=1&word=at'
-      
-      expect(response).to be(201)
+
+      expect(response.status).to be(201)
 
       get '/api/v1/games/1'
 
