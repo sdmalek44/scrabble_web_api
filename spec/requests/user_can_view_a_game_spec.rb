@@ -17,6 +17,7 @@ describe 'GET /api/v1/games/1' do
 
     expect(response).to be_success
     game = JSON.parse(response.body, symbolize_names: true)
+    binding.pry
 
     expect(game[:game_id]).to eq(1)
     expect(game[:scores][0][:user_id]).to eq(1)
