@@ -18,7 +18,7 @@ class WordPresenter
     if response.env.status == 404
       "'#{@word}' is not a valid word."
     elsif response.env.status == 200
-      "‘#{@word}’ is a valid word and its root form is ‘#{JSON.parse(response.body, symbolize_names: true)[:results][0][:lexicalEntries][0][:inflectionOf][0][:text]}’."
+      "'#{@word}' is a valid word and its root form is '#{JSON.parse(response.body, symbolize_names: true)[:results][0][:lexicalEntries][0][:inflectionOf][0][:text]}'."
     end
   end
 end
