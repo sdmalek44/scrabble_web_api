@@ -14,6 +14,8 @@ class Play < ApplicationRecord
 
   private
 
-    def score_word
-    end
+  def score_word
+    self.score = word.chars.inject(0) {|collect, letter| collect += letter_scores[letter.upcase] }
+  end
+
 end
