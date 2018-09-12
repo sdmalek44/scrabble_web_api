@@ -34,7 +34,6 @@ describe 'GET /api/v1/games' do
       get '/api/v1/games/1'
 
       game = JSON.parse(response.body, symbolize_names: true)
-
       expect(game[:game_id]).to eq(1)
       expect(game[:scores][0][:user_id]).to eq(1)
       expect(game[:scores][0][:score]).to eq(17)
